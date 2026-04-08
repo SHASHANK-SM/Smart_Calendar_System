@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📅 Smart Calendar System
 
-## Getting Started
+## 🚀 Overview
 
-First, run the development server:
+A modern, responsive **Interactive Calendar Web Component** built using **Next.js (App Router)** and **Tailwind CSS**.
+This project transforms a traditional wall calendar into a **dynamic, user-friendly digital experience** with date range selection and integrated notes.
+
+---
+
+## ✨ Key Features
+
+### 📆 Wall Calendar Aesthetic
+
+* Clean, minimal UI inspired by physical wall calendars
+* Hero image with month overlay for strong visual hierarchy
+* Balanced layout between calendar and notes panel
+
+### 🧠 Date Range Selection
+
+* Select start and end dates seamlessly
+* Visual highlights for:
+
+  * Start date
+  * End date
+  * In-between range
+* ✨ Hover preview before final selection (advanced UX feature)
+
+### 📝 Notes System
+
+* Add notes linked to selected date ranges
+* Persistent storage using **localStorage**
+* Clean and scrollable notes interface
+
+### 📱 Fully Responsive Design
+
+* Desktop → Side-by-side layout
+* Mobile → Stacked layout
+* Optimized for touch interaction
+
+### 🎨 UI/UX Enhancements
+
+* Smooth transitions and hover effects
+* Soft shadows and modern spacing
+* Gradient background and polished visuals
+
+---
+
+## 🛠 Tech Stack
+
+| Category      | Technology           |
+| ------------- | -------------------- |
+| Framework     | Next.js (App Router) |
+| Language      | TypeScript           |
+| Styling       | Tailwind CSS         |
+| Date Handling | date-fns             |
+| State Mgmt    | React Hooks          |
+
+---
+
+## 🧱 Project Structure
+
+```bash
+src/
+ ├── app/
+ │    ├── layout.tsx
+ │    ├── page.tsx
+ │    └── globals.css
+ │
+ ├── components/
+ │    ├── Calendar.tsx
+ │    ├── CalendarGrid.tsx
+ │    └── NotesPanel.tsx
+ 
+
+```
+
+---
+
+## ▶️ Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/interactive-calendar.git
+cd interactive-calendar
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Open: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎥 Demo Video
 
-To learn more about Next.js, take a look at the following resources:
+📹 *(Add your Loom / YouTube walkthrough here)*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Highlights
 
-## Deploy on Vercel
+* Implemented **interactive date range selection with preview**
+* Designed with **component-based architecture**
+* Focused on **clean UI/UX and responsiveness**
+* Used **client-side persistence (localStorage)** for simplicity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Design Approach
+
+This project focuses on:
+
+* **Visual hierarchy** (image → calendar → notes)
+* **User interaction clarity**
+* **Minimal yet functional UI**
+* **Smooth micro-interactions**
+
+---
+
+## 🙌 Author
+
+**Shashank Madabal**
+Aspiring AI/ML Engineer & Software Developer for Intelligent Systems.
+Passionate about building intelligent and user-centric applications
+
+---
+
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub and feel free to contribute!
