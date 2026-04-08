@@ -97,8 +97,42 @@ body {
     padding: 3rem;
 }
 
+.hero-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    min-height: 28rem;
+    background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2.5rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.76));
+}
+
 .hero-card-header {
+    position: relative;
+    z-index: 1;
     max-width: 40rem;
+}
+
+.hero-image {
+    width: min(100%, 34rem);
+    margin: 1.75rem auto 0;
+    border-radius: 1.75rem;
+    display: block;
+    max-height: 20rem;
+    object-fit: cover;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
 }
 
 .hero-subtitle {
@@ -116,10 +150,21 @@ body {
 }
 
 .hero-copy {
-    color: rgba(226, 232, 240, 0.9);
+    color: rgba(255, 255, 255, 0.92);
     max-width: 42rem;
     font-size: 1.05rem;
     line-height: 1.9;
+}
+
+.hero-title {
+    color: #ffffff;
+    text-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hero-panel {
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.45);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 .hero-panel {
@@ -134,7 +179,7 @@ body {
     color: rgba(148, 163, 184, 0.85);
     text-transform: uppercase;
     letter-spacing: 0.35em;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
 
@@ -174,7 +219,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.35em;
     color: #64748b;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
 }
 
 .calendar-title {
@@ -195,7 +240,7 @@ body {
     padding: 0.95rem 1.4rem;
     background: white;
     color: #334155;
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
@@ -282,7 +327,7 @@ body {
 }
 
 .notes-card {
-    padding: 2rem;
+    padding: 2.25rem;
 }
 
 .notes-card-header {
@@ -293,7 +338,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.35em;
     color: #64748b;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
 }
 
 .notes-title {
@@ -315,11 +360,14 @@ body {
     border-radius: 1.75rem;
     border: 1px solid rgba(148, 163, 184, 0.3);
     background: #f8fafc;
-    padding: 1.25rem;
+    padding: auto;
+    /* padding-right: 0.2rem; */
     color: #0f172a;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.9;
     resize: vertical;
+    margin-top: 1.5rem;
+    text-align: justify;
 }
 
 .notes-textarea:focus {
@@ -338,7 +386,7 @@ body {
     padding: 0.95rem 1.25rem;
     background: #0f172a;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -352,6 +400,7 @@ body {
 
 .notes-list {
     margin-top: 1.75rem;
+    margin-bottom: 1rem;
     display: grid;
     gap: 1rem;
     max-height: 28rem;
@@ -390,7 +439,7 @@ body {
 .hero-panel-subvalue {
     margin-top: 0.5rem;
     color: rgba(226, 232, 240, 0.75);
-    font-size: 0.95rem;
+    font-size: 1.25rem;
 }
 
 .notes-actions {
@@ -442,5 +491,74 @@ body {
 @media (min-width: 1920px) {
     .page-shell {
         padding: 4rem 3rem 5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-shell {
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .hero-visual {
+        min-height: 20rem;
+        padding: 1.75rem;
+    }
+
+    .hero-card-inner {
+        padding: 1.75rem;
+    }
+
+    .hero-card-inner,
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card-header {
+        max-width: none;
+    }
+
+    .hero-panel,
+    .calendar-card,
+    .notes-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .hero-panel {
+        margin-top: 1rem;
+    }
+
+    .content-grid {
+        gap: 1rem;
+    }
+
+    .calendar-nav-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .calendar-nav-button,
+    .notes-button,
+    .notes-clear-button {
+        width: 100%;
+    }
+
+    .notes-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .calendar-weekdays,
+    .calendar-grid {
+        gap: 0.5rem;
+    }
+
+    .calendar-blank,
+    .calendar-day {
+        min-height: 3.5rem;
+    }
+
+    .notes-textarea {
+        min-height: 10rem;
     }
 }

@@ -32,12 +32,14 @@ export default function Calendar() {
         <div className="page-shell">
             <section className="hero-card">
                 <div className="hero-card-inner">
-                    <div className="hero-card-header">
-                        <p className="hero-subtitle">Monthly planner</p>
-                        <h1 className="hero-title">Elevate Your Everyday Planning</h1>
-                        <p className="hero-copy">
-                            Keep your schedule visible and add notes for any selected date with a modern, polished layout.
-                        </p>
+                    <div className="hero-visual">
+                        <div className="hero-card-header">
+                            <p className="hero-subtitle">Monthly planner</p>
+                            <h1 className="hero-title">Elevate Your Everyday Planning</h1>
+                            <p className="hero-copy">
+                                Keep your schedule visible and add notes for any selected date with a modern, polished layout.
+                            </p>
+                        </div>
                     </div>
 
                     <div className="hero-panel">
