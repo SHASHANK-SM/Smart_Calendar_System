@@ -1,26 +1,446 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 🌐 Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 🎨 Global background + font */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    min-height: 100vh;
+}
+
+/* ✨ Smooth transitions everywhere */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* 🖱️ Custom scrollbar (premium feel) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a5b4fc;
+}
+
+/* ✨ Selection color */
+::selection {
+    background: #6366f1;
+    color: white;
+}
+
+.page-shell {
+    width: min(100%, 1600px);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+
+.hero-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    background: #0f172a;
+    color: white;
+    box-shadow: 0 30px 90px rgba(15, 23, 42, 0.22);
+}
+
+.hero-card::before,
+.hero-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.42;
+}
+
+.hero-card::before {
+    width: 26rem;
+    height: 26rem;
+    top: -6rem;
+    left: -8rem;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 55%);
+}
+
+.hero-card::after {
+    width: 18rem;
+    height: 18rem;
+    bottom: -4rem;
+    right: -6rem;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.22), transparent 55%);
+}
+
+.hero-card-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    padding: 3rem;
+}
+
+.hero-card-header {
+    max-width: 40rem;
+}
+
+.hero-subtitle {
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(56, 189, 248, 0.82);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.02;
+    margin-bottom: 1rem;
+}
+
+.hero-copy {
+    color: rgba(226, 232, 240, 0.9);
+    max-width: 42rem;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.hero-panel {
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.18);
+}
+
+.hero-panel-label {
+    color: rgba(148, 163, 184, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-panel-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.content-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.calendar-card,
+.notes-card {
+    border-radius: 2rem;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+}
+
+.calendar-card {
+    padding: 2rem;
+}
+
+.calendar-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.calendar-label {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.calendar-title {
+    font-size: clamp(2.25rem, 2.5vw, 2.6rem);
+    line-height: 1.08;
+    margin-top: 0.5rem;
+}
+
+.calendar-nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.calendar-nav-button {
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    border-radius: 9999px;
+    padding: 0.95rem 1.4rem;
+    background: white;
+    color: #334155;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.calendar-nav-button:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.calendar-nav-button.primary {
+    background: #0f172a;
+    color: white;
+    border-color: transparent;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.calendar-weekday {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.calendar-blank,
+.calendar-day {
+    min-height: 4.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.calendar-blank {
+    background: #f8fafc;
+}
+
+.calendar-day {
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: white;
+    color: #0f172a;
+    transition: transform 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.calendar-day.active {
+    background: #0f172a;
+    color: white;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
+}
+
+.calendar-day.today {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+}
+
+.calendar-day.range {
+    background: #e2e8f0;
+}
+
+.calendar-day.preview {
+    background: #f1f5f9;
+}
+
+.notes-card {
+    padding: 2rem;
+}
+
+.notes-card-header {
+    margin-bottom: 1.5rem;
+}
+
+.notes-label {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.notes-title {
+    margin-top: 0.75rem;
+    font-size: clamp(2.1rem, 2.8vw, 2.4rem);
+    color: #0f172a;
+}
+
+.notes-copy {
+    margin-top: 0.75rem;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.notes-textarea {
+    width: 100%;
+    min-height: 12rem;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: #f8fafc;
+    padding: 1.25rem;
+    color: #0f172a;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    resize: vertical;
+}
+
+.notes-textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.14);
+}
+
+.notes-button {
+    width: 100%;
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0.95rem 1.25rem;
+    background: #0f172a;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.notes-button:hover {
+    background: #111827;
+    transform: translateY(-1px);
+}
+
+.notes-list {
+    margin-top: 1.75rem;
+    display: grid;
+    gap: 1rem;
+    max-height: 28rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.notes-empty {
+    border-radius: 1.75rem;
+    border: 1px dashed rgba(148, 163, 184, 0.5);
+    background: #f8fafc;
+    padding: 1.5rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.note-item {
+    border-radius: 1.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: #f8fafc;
+    padding: 1.25rem;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+}
+
+.note-text {
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.note-date {
+    margin-top: 0.75rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.hero-panel-subvalue {
+    margin-top: 0.5rem;
+    color: rgba(226, 232, 240, 0.75);
+    font-size: 0.95rem;
+}
+
+.notes-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.notes-clear-button {
+    flex: 1;
+    border-radius: 9999px;
+    padding: 0.95rem 1.25rem;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: white;
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.notes-clear-button:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.notes-clear-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1280px) {
+
+    .hero-card-inner,
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        border-radius: 1.75rem;
+    }
+
+    .calendar-card,
+    .notes-card {
+        padding: 1.75rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .page-shell {
+        padding: 4rem 3rem 5rem;
+    }
 }
