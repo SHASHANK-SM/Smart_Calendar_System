@@ -104,7 +104,7 @@ npm run dev
 
 ## 🎥 Demo Video
 
-📹 *(Add your Loom / YouTube walkthrough here)*
+📹[ *(Added the Demo video click here ..)*](https://drive.google.com/file/d/1MkNkb0gbVA0jgl2dlCmK1QWaWeH7i3Aw/view?usp=drive_link)
 
 ---
 
